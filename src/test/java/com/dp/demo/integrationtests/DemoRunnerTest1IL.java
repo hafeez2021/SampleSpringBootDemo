@@ -18,6 +18,7 @@ import org.springframework.test.context.support.AnnotationConfigContextLoader;
 
 import static org.mockito.Mockito.*;
 
+//Method1: Integration Test methods
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = {ServiceConfig.class,
                                     PersistenceConfig.class,
