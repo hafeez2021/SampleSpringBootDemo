@@ -23,7 +23,7 @@ import static org.mockito.Mockito.*;
                                     PersistenceConfig.class,
                                     ContextConfiguration1.class},
         loader = AnnotationConfigContextLoader.class)
-public class DemoRunnerTestIL {
+public class DemoRunnerTest1IL {
 
     @Autowired
     private Car car;
