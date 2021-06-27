@@ -20,6 +20,8 @@ target/
 *.ipr
 *.DS_Store
 
+*.csv
+
 ### NetBeans ###
 /nbproject/private/
 /nbbuild/
