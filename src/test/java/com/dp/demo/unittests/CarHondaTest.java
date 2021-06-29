@@ -7,8 +7,8 @@ import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mockito;
 
-import static org.mockito.Mockito.times;
-import static org.mockito.Mockito.verify;
+import static org.junit.Assert.assertTrue;
+import static org.mockito.Mockito.*;
 
 public class CarHondaTest {
 
@@ -25,10 +25,17 @@ public class CarHondaTest {
     }
 
     @Test
-    public void shouldCallBrakeGetOnce()
+    public void shouldReturnCarModelasHondaWhenModelIsCalled()
     {
-        car.model();
-        verify(fakeBrake, times(1)).get();
-        verify(fakeEngine, times(1)).get();
+       assertTrue(car.model().equals("Honda City"));
+    }
+
+    @Test
+    public void shouldReturnCarModelWithBrakeAndEngineDetails()
+    {
+        when(fakeBrake.get()).thenReturn("fake Brake");
+        when(fakeEngine.get()).thenReturn("fake Engine");
+
+        assertTrue(car.description().equals("Honda City Car with fake Brake,fake Engine"));
     }
 }

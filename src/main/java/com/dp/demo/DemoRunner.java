@@ -8,6 +8,7 @@ public class DemoRunner {
 
     public DemoRunner(Car car)
     {
-        car.model();
+        System.out.println(car.model());
+        System.out.println(car.description());
     }
 }

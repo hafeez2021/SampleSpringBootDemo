@@ -16,8 +16,13 @@ public class CarHonda implements Car {
         this.engine = engine;
     }
 
-    public void model() {
-        String output = "Honda Car with " + this.brake.get() + "," + this.engine.get();
-        System.out.println(output);
+    public String description() {
+        String description = model() + " Car with " + this.brake.get() + "," + this.engine.get();
+        return description;
+    }
+
+    @Override
+    public String model() {
+        return "Honda City";
     }
 }

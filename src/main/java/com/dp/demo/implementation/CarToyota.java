@@ -16,7 +16,12 @@ public class CarToyota implements Car {
         this.engine = engine;
     }
 
-    public void model() {
-        System.out.println("Toyota Car with " + this.brake.get() + "," + this.engine.get());
+    public String model() {
+        return "Toyota Prius";
+    }
+
+    @Override
+    public String description() {
+        return model() + " Car with " + this.brake.get() + "," + this.engine.get();
     }
 }
