@@ -1,7 +1,4 @@
-package com.dp.demo.contracts;
-
-import lombok.AllArgsConstructor;
-import lombok.Getter;
+package com.dp.demo.models;
 
 public class NRICMappingTableSchema extends MappingTableSchema {
 

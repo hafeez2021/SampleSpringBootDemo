@@ -1,6 +1,6 @@
 package com.dp.demo.implementation;
 
-import com.dp.demo.contracts.MappingTableSchema;
+import com.dp.demo.models.MappingTableSchema;
 import com.dp.demo.contracts.QueryableRepository;
 
 public class MappingTableRepository<T extends MappingTableSchema> {

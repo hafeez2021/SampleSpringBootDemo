@@ -1,8 +1,8 @@
 package com.dp.demo;
 
 import com.dp.demo.contracts.Car;
-import com.dp.demo.contracts.HubMappingTableSchema;
-import com.dp.demo.contracts.NRICMappingTableSchema;
+import com.dp.demo.models.HubMappingTableSchema;
+import com.dp.demo.models.NRICMappingTableSchema;
 import com.dp.demo.contracts.QueryableRepository;
 import com.dp.demo.implementation.MappingTableRepository;
 import org.springframework.beans.factory.annotation.Qualifier;

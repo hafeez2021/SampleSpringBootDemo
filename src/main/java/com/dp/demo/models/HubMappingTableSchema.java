@@ -1,4 +1,4 @@
-package com.dp.demo.contracts;
+package com.dp.demo.models;
 
 public class HubMappingTableSchema extends MappingTableSchema {
 
