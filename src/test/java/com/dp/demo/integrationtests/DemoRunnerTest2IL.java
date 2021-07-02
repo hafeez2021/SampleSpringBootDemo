@@ -4,6 +4,7 @@ package com.dp.demo.integrationtests;
 import com.dp.demo.DemoRunner;
 import com.dp.demo.configuration.ContextConfiguration1;
 import com.dp.demo.contracts.Car;
+import com.dp.demo.contracts.QueryableRepository;
 import com.dp.demo.dependencyconfiguration.PersistenceConfig;
 import com.dp.demo.dependencyconfiguration.ServiceConfig;
 import com.dp.demo.dependencyconfiguration.StorageAccountConfig;
@@ -48,7 +49,7 @@ public class DemoRunnerTest2IL {
     public void newTest()
     {
       //  StorageAccountConfig spyStorageAccountConfig = spy(storageAccountConfig);
-        DemoRunner demoApplication = new DemoRunner(car);
+        DemoRunner demoApplication = new DemoRunner(car, Mockito.mock(QueryableRepository.class));
         verify(storageAccountConfig,times(2)).getConnectionString();
         System.out.println("Inside Demo Runner Test:" + storageAccountConfig.getConnectionString());
 

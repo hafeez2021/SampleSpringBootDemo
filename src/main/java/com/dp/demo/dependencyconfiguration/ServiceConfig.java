@@ -1,10 +1,8 @@
 package com.dp.demo.dependencyconfiguration;
 
 import com.dp.demo.contracts.*;
-import com.dp.demo.implementation.BrakeBrembo;
-import com.dp.demo.implementation.CarHonda;
-import com.dp.demo.implementation.EngineHonda;
-import com.dp.demo.implementation.PadHard;
+import com.dp.demo.implementation.*;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -25,13 +23,33 @@ public class ServiceConfig {
     }
 
     @Bean
-    public Brake brake(Pad pad, Persistence persistence) {
-        return new BrakeBrembo(pad, persistence);
+    public Brake brake(Pad pad, @Qualifier("bloomFilterRepository") QueryableRepository queryableRepository) {
+        return new BrakeBrembo(pad, queryableRepository);
     }
 
     @Bean
     public Car car(Engine engine, Brake brake)
     {
         return new CarHonda(brake, engine);
+    }
+
+    @Bean
+    public Persistence persistence(StorageAccountConfig storageAccountConfig) {
+        return new SqlPersistence(storageAccountConfig);
+    }
+
+    @Bean("bloomFilterRepository")
+    public QueryableRepository querableRepository(@Qualifier("cachedRepository")  QueryableRepository persistenceRepository) {
+        return new BloomFilterPersistenceRepository(persistenceRepository);
+    }
+
+    @Bean("cachedRepository")
+    public QueryableRepository querableRepository(@Qualifier("dbPersistenceRepository")  PersistenceRepository persistenceRepository) {
+        return new CachedSqlPersistenceRepository(persistenceRepository);
+    }
+
+    @Bean("dbPersistenceRepository")
+    public PersistenceRepository persistenceRepository() {
+        return new SqlPersistenceRepository();
     }
 }
