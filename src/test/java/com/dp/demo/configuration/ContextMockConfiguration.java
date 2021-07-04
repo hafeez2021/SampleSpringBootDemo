@@ -16,7 +16,7 @@ import static org.junit.jupiter.api.extension.ExtensionContext.Namespace.GLOBAL;
 import static org.mockito.Mockito.when;
 
 @Configuration
-public class ContextConfiguration1
+public class ContextMockConfiguration
 {
     @Bean
     public StorageAccountConfig storageAccountConfig()

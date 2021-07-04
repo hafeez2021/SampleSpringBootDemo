@@ -23,8 +23,8 @@ public class ServiceConfig {
     }
 
     @Bean
-    public Brake brake(Pad pad, @Qualifier("bloomFilterRepository") QueryableRepository queryableRepository) {
-        return new BrakeBrembo(pad, queryableRepository);
+    public Brake brake(Pad pad, @Qualifier("bloomFilterRepository") QueryableRepository queryableRepository, StorageAccountConfig storageAccountConfig) {
+        return new BrakeBrembo(pad, queryableRepository, storageAccountConfig);
     }
 
     @Bean

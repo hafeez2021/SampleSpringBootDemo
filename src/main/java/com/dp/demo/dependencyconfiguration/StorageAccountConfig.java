@@ -12,4 +12,9 @@ import lombok.*;
 public class StorageAccountConfig {
     @ToString.Exclude
     private String connectionString;
+
+    public StorageAccountConfig()
+    {
+
+    }
 }
